@@ -20,3 +20,14 @@ const RnPip = NativeModules.RnPip
 export function multiply(a: number, b: number): Promise<number> {
   return RnPip.multiply(a, b);
 }
+
+export function enterPictureInPictureMode(width?: number, height?: number) {
+  if (Platform.OS !== 'android') {
+    return;
+  }
+
+  return RnPip.enterPictureInPictureMode(
+    width ? Math.floor(width) : 0,
+    height ? Math.floor(height) : 0
+  );
+}
