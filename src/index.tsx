@@ -41,12 +41,16 @@ export function enterPictureInPictureMode(width?: number, height?: number) {
 const PipEventEmitter =
   Platform.OS === 'android' ? new NativeEventEmitter(RnPip) : null;
 
-export function onPipModeChanged(listener: (isModeEnabled: Boolean) => void) {
+export function onPipModeChanged(listener: (isModeEnabled: boolean) => void) {
   return PipEventEmitter?.addListener('PIP_MODE_CHANGE', listener);
 }
 
-export function usePipModeListener(): Boolean {
-  const [isModeEnabled, setIsPipModeEnabled] = useState<Boolean>(false);
+export function enableAutoPipMode(enable: boolean) {
+  RnPip.enableAutoPipMode(enable);
+}
+
+export function usePipModeListener(): boolean {
+  const [isModeEnabled, setIsPipModeEnabled] = useState<boolean>(false);
 
   useEffect(() => {
     let pipListener: EmitterSubscription | undefined;
