@@ -24,4 +24,10 @@ class MainActivity : ReactActivity() {
   override fun onPictureInPictureModeChanged(isInPictureInPictureMode: Boolean) {
     RnPipModule.pipModeChanged(isInPictureInPictureMode)
   }
+
+  override fun onUserLeaveHint() {
+    if (RnPipModule.ENABLE_AUTO_PIP_MODE) {
+      RnPipModule.enterPipMode()
+    }
+  }
 }
