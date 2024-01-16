@@ -2,11 +2,16 @@ import * as React from 'react';
 import { useRef } from 'react';
 
 import { StyleSheet, View, Text, Button, AppState } from 'react-native';
-import { multiply, enterPictureInPictureMode } from 'rn-pip';
+import {
+  multiply,
+  enterPictureInPictureMode,
+  usePipModeListener,
+} from 'rn-pip';
 
 export default function App() {
   const [result, setResult] = React.useState<number | undefined>();
   const appState = useRef(AppState.currentState);
+  const inPipMode = usePipModeListener();
 
   React.useEffect(() => {
     multiply(3, 7).then(setResult);
@@ -43,6 +48,7 @@ export default function App() {
         />
       </View>
       <Text>Result: {result}</Text>
+      <Text>Pip Mode {inPipMode.toString()}</Text>
     </View>
   );
 }

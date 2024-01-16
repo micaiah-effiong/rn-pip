@@ -17,9 +17,16 @@ import com.facebook.react.modules.core.DeviceEventManagerModule;
 @ReactModule(name = RnPipModule.NAME)
 public class RnPipModule extends ReactContextBaseJavaModule {
   public static final String NAME = "RnPip";
+  public static final String PIP_MODE_CHANGE = "PIP_MODE_CHANGE";
   private static DeviceEventManagerModule.RCTDeviceEventEmitter eventEmitter = null;
 
   ReactApplicationContext reactApplicationContext;
+
+  public static void pipModeChanged(Boolean isInPictureInPictureMode) {
+    Log.d("RN_PIP", "PIP Mode changed");
+    Log.d("RN_PIP", "is in pip ".concat( isInPictureInPictureMode ? "true" : "false"));
+    eventEmitter.emit(PIP_MODE_CHANGE, isInPictureInPictureMode);
+  }
 
   public RnPipModule(ReactApplicationContext reactContext) {
     super(reactContext);
@@ -33,12 +40,12 @@ public class RnPipModule extends ReactContextBaseJavaModule {
   }
 
 
-//  @Override
-//  public void initialize() {
-//    super.initialize();
-//
-//    eventEmitter = getReactApplicationContext().getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class);
-//  }
+  @Override
+  public void initialize() {
+    super.initialize();
+
+    eventEmitter = getReactApplicationContext().getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class);
+  }
 
   // Example method
   // See https://reactnative.dev/docs/native-modules-android
@@ -48,20 +55,17 @@ public class RnPipModule extends ReactContextBaseJavaModule {
   }
 
   @ReactMethod
-  public void enterPictureInPictureMode(int width, int height, Promise promise) {
+  public void enterPictureInPictureMode(int width, int height) {
      if(isInPipMode()){
-       promise.reject("Context may not be available or activity is not in picture-in-picture mode");
        return;
      }
 
     PackageManager pm = reactApplicationContext.getPackageManager();
     if(!pm.hasSystemFeature(PackageManager.FEATURE_PICTURE_IN_PICTURE)){
-      promise.reject("Device does not support Picture in picture");
       return;
     }
 
     if (android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.O) {
-      promise.reject("Build version too low for picture in picture");
       return;
     }
 
@@ -75,8 +79,6 @@ public class RnPipModule extends ReactContextBaseJavaModule {
     PictureInPictureParams params = pipBuilder.build();
 
     reactApplicationContext.getCurrentActivity().enterPictureInPictureMode(params);
-
-    promise.resolve(null);
   }
 
 

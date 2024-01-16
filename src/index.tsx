@@ -1,4 +1,10 @@
-import { NativeModules, Platform } from 'react-native';
+import { useEffect, useState } from 'react';
+import {
+  NativeEventEmitter,
+  NativeModules,
+  Platform,
+  type EmitterSubscription,
+} from 'react-native';
 
 const LINKING_ERROR =
   `The package 'rn-pip' doesn't seem to be linked. Make sure: \n\n` +
@@ -30,4 +36,28 @@ export function enterPictureInPictureMode(width?: number, height?: number) {
     width ? Math.floor(width) : 0,
     height ? Math.floor(height) : 0
   );
+}
+
+const PipEventEmitter =
+  Platform.OS === 'android' ? new NativeEventEmitter(RnPip) : null;
+
+export function onPipModeChanged(listener: (isModeEnabled: Boolean) => void) {
+  return PipEventEmitter?.addListener('PIP_MODE_CHANGE', listener);
+}
+
+export function usePipModeListener(): Boolean {
+  const [isModeEnabled, setIsPipModeEnabled] = useState<Boolean>(false);
+
+  useEffect(() => {
+    let pipListener: EmitterSubscription | undefined;
+    if (Platform.OS === 'android') {
+      pipListener = onPipModeChanged(setIsPipModeEnabled);
+    }
+
+    return () => {
+      pipListener?.remove();
+    };
+  }, []);
+
+  return isModeEnabled;
 }
