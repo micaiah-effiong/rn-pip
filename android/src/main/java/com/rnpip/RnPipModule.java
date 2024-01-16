@@ -18,9 +18,11 @@ import com.facebook.react.modules.core.DeviceEventManagerModule;
 public class RnPipModule extends ReactContextBaseJavaModule {
   public static final String NAME = "RnPip";
   public static final String PIP_MODE_CHANGE = "PIP_MODE_CHANGE";
+  public static Boolean ENABLE_AUTO_PIP_MODE = false;
   private static DeviceEventManagerModule.RCTDeviceEventEmitter eventEmitter = null;
 
   ReactApplicationContext reactApplicationContext;
+  public static ReactApplicationContext _reactApplicationContext;
 
   public static void pipModeChanged(Boolean isInPictureInPictureMode) {
     Log.d("RN_PIP", "PIP Mode changed");
@@ -31,6 +33,7 @@ public class RnPipModule extends ReactContextBaseJavaModule {
   public RnPipModule(ReactApplicationContext reactContext) {
     super(reactContext);
     this.reactApplicationContext = reactContext;
+    _reactApplicationContext = reactContext;
   }
 
   @Override
@@ -52,6 +55,38 @@ public class RnPipModule extends ReactContextBaseJavaModule {
   @ReactMethod
   public void multiply(double a, double b, Promise promise) {
     promise.resolve(a * b);
+  }
+
+  public static void enterPipMode(){
+    if(_reactApplicationContext.getCurrentActivity() != null && _reactApplicationContext.getCurrentActivity().isInPictureInPictureMode()){
+      return;
+    }
+
+    PackageManager pm = _reactApplicationContext.getPackageManager();
+    if(!pm.hasSystemFeature(PackageManager.FEATURE_PICTURE_IN_PICTURE)){
+      return;
+    }
+
+    if (android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.O) {
+      return;
+    }
+
+    // 300, 214
+    int ratWidth = 380;
+    int ratHeight = 214;
+
+    PictureInPictureParams.Builder pipBuilder = new PictureInPictureParams.Builder();
+    Rational ratio = new Rational(ratWidth, ratHeight);
+    pipBuilder.setAspectRatio(ratio);
+    PictureInPictureParams params = pipBuilder.build();
+
+    _reactApplicationContext.getCurrentActivity().enterPictureInPictureMode(params);
+  }
+
+
+  @ReactMethod
+  public void enableAutoPipMode(Boolean enable) {
+    RnPipModule.ENABLE_AUTO_PIP_MODE = enable;
   }
 
   @ReactMethod
