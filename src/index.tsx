@@ -42,10 +42,16 @@ const PipEventEmitter =
   Platform.OS === 'android' ? new NativeEventEmitter(RnPip) : null;
 
 export function onPipModeChanged(listener: (isModeEnabled: boolean) => void) {
+  if (Platform.OS !== 'android') {
+    return;
+  }
   return PipEventEmitter?.addListener('PIP_MODE_CHANGE', listener);
 }
 
 export function enableAutoPipMode(enable: boolean) {
+  if (Platform.OS !== 'android') {
+    return;
+  }
   RnPip.enableAutoPipMode(enable);
 }
 
@@ -53,10 +59,12 @@ export function usePipModeListener(): boolean {
   const [isModeEnabled, setIsPipModeEnabled] = useState<boolean>(false);
 
   useEffect(() => {
-    let pipListener: EmitterSubscription | undefined;
-    if (Platform.OS === 'android') {
-      pipListener = onPipModeChanged(setIsPipModeEnabled);
+    if (Platform.OS !== 'android') {
+      return;
     }
+
+    let pipListener: EmitterSubscription | undefined =
+      onPipModeChanged(setIsPipModeEnabled);
 
     return () => {
       pipListener?.remove();
