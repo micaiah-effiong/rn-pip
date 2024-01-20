@@ -19,6 +19,11 @@ jobs:
       - name: Build package
         run: yarn prepare
 
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          registry-url: 'https://registry.npmjs.org'
+
       - name: NPM Publish
         run: npm publish
         env:
