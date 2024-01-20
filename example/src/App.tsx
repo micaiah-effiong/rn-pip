@@ -1,25 +1,25 @@
 import * as React from 'react';
 
-import { StyleSheet, View, Text, Button } from 'react-native';
-import {
-  multiply,
+import { StyleSheet, View, Text, Button, type ViewStyle } from 'react-native';
+import RnPipHandler, {
   enterPictureInPictureMode,
-  usePipModeListener,
   enableAutoPipMode,
 } from 'rn-pip';
 
 export default function App() {
-  const [result, setResult] = React.useState<number | undefined>();
-  // const appState = useRef(AppState.currentState);
-  const inPipMode = usePipModeListener();
-
-  React.useEffect(() => {
-    multiply(3, 6).then(setResult);
-  }, []);
+  const inPipMode = RnPipHandler.usePipModeListener();
 
   React.useEffect(() => {
     enableAutoPipMode(true);
   }, []);
+
+  if (inPipMode) {
+    return (
+      <View style={styles.container}>
+        <Text>Pip Mode {inPipMode.toString()}</Text>
+      </View>
+    );
+  }
 
   return (
     <View style={styles.container}>
@@ -29,7 +29,6 @@ export default function App() {
           title="Enter pip Mode"
         />
       </View>
-      <Text>Result: {result}</Text>
       <Text>Pip Mode {inPipMode.toString()}</Text>
     </View>
   );
@@ -40,7 +39,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-  },
+  } as ViewStyle,
   box: {
     width: 60,
     height: 60,

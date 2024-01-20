@@ -73,3 +73,9 @@ export function usePipModeListener(): boolean {
 
   return isModeEnabled;
 }
+
+export default {
+  enterPictureInPictureMode,
+  usePipModeListener,
+  enableAutoPipMode,
+};
