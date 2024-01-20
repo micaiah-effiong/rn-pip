@@ -121,4 +121,17 @@ public class RnPipModule extends ReactContextBaseJavaModule {
   public boolean isInPipMode() {
     return reactApplicationContext.getCurrentActivity() != null && reactApplicationContext.getCurrentActivity().isInPictureInPictureMode();
   }
+
+  // Required for rn built in EventEmitter Calls.
+  // https://stackoverflow.com/a/69650217
+  @ReactMethod
+  public void addListener(String eventName) {
+
+  }
+
+  // https://stackoverflow.com/a/69650217
+  @ReactMethod
+  public void removeListeners(Integer count) {
+
+  }
 }
