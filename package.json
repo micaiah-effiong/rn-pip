@@ -1,6 +1,6 @@
 {
   "name": "rn-pip",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "React native picture-in-picture implementation",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
