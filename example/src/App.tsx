@@ -8,10 +8,11 @@ import RnPipHandler, {
 
 export default function App() {
   const inPipMode = RnPipHandler.usePipModeListener();
+  const [autoPipMode, setAutoPipMode] = React.useState(true);
 
   React.useEffect(() => {
-    enableAutoPipMode(true);
-  }, []);
+    enableAutoPipMode(autoPipMode);
+  }, [autoPipMode]);
 
   if (inPipMode) {
     return (
@@ -23,13 +24,21 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <View>
+      <View style={styles.box}>
         <Button
           onPress={() => enterPictureInPictureMode()}
           title="Enter pip Mode"
         />
+        <Text>Pip Mode {inPipMode.toString()}</Text>
       </View>
-      <Text>Pip Mode {inPipMode.toString()}</Text>
+
+      <View style={styles.box}>
+        <Button
+          onPress={() => setAutoPipMode((prev) => !prev)}
+          title={`${autoPipMode ? 'Disable' : 'Enable'} auto pip modes`}
+        />
+        <Text>Auto Pip Mode {autoPipMode.toString()}</Text>
+      </View>
     </View>
   );
 }
@@ -41,8 +50,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   } as ViewStyle,
   box: {
-    width: 60,
-    height: 60,
     marginVertical: 20,
-  },
+    alignItems: 'center',
+    justifyContent: 'center',
+  } as ViewStyle,
 });
