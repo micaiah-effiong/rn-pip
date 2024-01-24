@@ -74,7 +74,12 @@ function isAndroid() {
   return Platform.OS === 'android';
 }
 
+export const setDisplay = (width: number, height: number) => {
+  RnPip.setDisplay(width, height);
+};
+
 export default {
+  setDisplay,
   enterPictureInPictureMode,
   usePipModeListener,
   enableAutoPipMode,
