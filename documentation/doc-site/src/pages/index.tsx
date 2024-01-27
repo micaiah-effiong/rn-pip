@@ -22,7 +22,14 @@ function HomepageHeader() {
             to="/docs/intro">
             Get Started
           </Link>
+
+          <Link
+            className="button button--secondary button--lg"
+            to="/docs/intro">
+            Try a Demo
+          </Link>
         </div>
+
       </div>
     </header>
   );

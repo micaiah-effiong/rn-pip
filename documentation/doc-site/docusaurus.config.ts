@@ -82,12 +82,25 @@ const config: Config = {
       style: 'dark',
       links: [
         {
-          title: 'Docs',
+          title: 'Learn',
           items: [
             {
-              label: 'Tutorial',
+              label: 'Introduction',
               to: '/docs/intro',
             },
+            {
+              label:"Installation",
+              to:'/docs/getting-started/installation'
+
+            },
+            {
+              label:'Guides',
+              to:'/docs/category/guides--concepts'
+            },
+            {
+              label:'Examples',
+              to:'/docs/category/examples'
+            }
           ],
         },
         {
