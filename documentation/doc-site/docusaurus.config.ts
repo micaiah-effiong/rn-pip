@@ -3,7 +3,7 @@ import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
-  title: 'rn-pip',
+  title: 'Rn-pip',
   tagline: 'React Native Picture in Picture',
   favicon: 'img/favicon.ico',
 
@@ -55,10 +55,15 @@ const config: Config = {
   ],
 
   themeConfig: {
+    colorMode:{
+      defaultMode: 'dark',
+      disableSwitch:true,
+      respectPrefersColorScheme:true
+    },
     // Replace with your project's social card
     image: 'img/docusaurus-social-card.jpg',
     navbar: {
-      title: 'rn-pip',
+      title: 'Rn-pip',
       logo: {
         alt: 'My Site Logo',
         src: 'img/logo.svg',
@@ -79,7 +84,7 @@ const config: Config = {
       ],
     },
     footer: {
-      style: 'dark',
+      style: 'light',
       links: [
         {
           title: 'Learn',
