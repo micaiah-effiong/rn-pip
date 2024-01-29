@@ -14,8 +14,8 @@ const FeatureList: FeatureItem[] = [
     Svg: require('@site/static/img/undraw_ease.svg').default,
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+        Rn-pip was designed from the ground up to be easily installed and intergrated into
+        your React Native App.
       </>
     ),
   },
@@ -24,8 +24,9 @@ const FeatureList: FeatureItem[] = [
     Svg: require('@site/static/img/undraw_focus.svg').default,
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+        Rn-pip lets you focus on what matters, and we&apos;ll do the chores. Go
+        ahead and keep users engaged by enabling Picture in Picture,
+        allowing them to stay immersed in your app's content.
       </>
     ),
   },
@@ -34,14 +35,13 @@ const FeatureList: FeatureItem[] = [
     Svg: require('@site/static/img/undraw_typescript.svg').default,
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+        Rn-pip provides first-class Typescript support
       </>
     ),
   },
 ];
 
-function Feature({title, Svg, description}: FeatureItem) {
+function Feature({ title, Svg, description }: FeatureItem) {
   return (
 
     <div className='col col--4'>

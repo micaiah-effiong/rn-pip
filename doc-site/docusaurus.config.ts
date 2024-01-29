@@ -4,7 +4,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
   title: 'Rn-pip',
-  tagline: 'React Native Picture in Picture',
+  tagline: 'Seamless Picture-in-picture library for React Native',
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
