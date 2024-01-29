@@ -9,10 +9,10 @@ You can install Rn-pip via [NPM](https://www.npmjs.com/) or [Yarn](https://yarnp
 # using npm
 $ npm install rn-pip
 
-#  using pnpm
+# using pnpm
 $ pnpm add rn-pip
 
-#using yarn
+# using yarn
 $ yarn add rn-pip
 
 ```
