@@ -46,7 +46,7 @@ function Feature({ title, Svg, description }: FeatureItem) {
 
     <div className='col col--4'>
       <div className="card-demo">
-        <div className="card">
+        <div>
           <div className="text--center">
             <Svg className={styles.featureSvg} role="img" />
           </div>

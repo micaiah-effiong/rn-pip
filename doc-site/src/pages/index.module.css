@@ -10,12 +10,6 @@
   overflow: hidden;
   height:80vh;
 }
-.heroImg{
-  position:absolute;
-  top:10;
-
-}
-
 
 .buttons {
   display: flex;
@@ -88,7 +82,5 @@ align-items:center;
       font-size:5em;
         transform:translate(2%, -30%)
   }
-  .heroImg{
-    display:none;
-  }
+
 }
