@@ -55,6 +55,32 @@ const config: Config = {
   ],
 
   themeConfig: {
+    // site meta data
+    metadata: [
+      {name:"keywords", content:"react native, picture in picture, pip,"},
+      {name: 'twitter:card', content: 'summary_large_image'},
+    ],
+    headTags:[
+      {
+        tagName:'link',
+        attributes:{
+          rel:'preconnect',
+          href: 'https://example.com',
+        }
+      },
+      {
+        tagName:'script',
+        attributes:{
+            type: 'application/ld+json',
+        },
+        innerHTML: JSON.stringify({
+          '@context': 'https://schema.org/',
+          '@type': 'Organization',
+          name: 'Rn-pip',
+          url: 'https://github.com/micaiah-effiong/rn-pip',
+        }),
+      }
+    ],
     colorMode:{
       defaultMode: 'dark',
       disableSwitch:false,
