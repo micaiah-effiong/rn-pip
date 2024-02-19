@@ -34,9 +34,17 @@ public class MainActivity extends ReactActivity {
 
 ...
 
-@Override
+  @Override
   public void onPictureInPictureModeChanged (boolean isInPictureInPictureMode, Configuration newConfig) {
     RnPipModule.pipModeChanged(isInPictureInPictureMode);
+  }
+
+
+  @Override
+  public void onUserLeaveHint() {
+    if (RnPipModule.ENABLE_AUTO_PIP_MODE) {
+      RnPipModule.enterPipMode()
+    }
   }
 
 ```
