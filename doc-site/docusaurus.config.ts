@@ -1,5 +1,5 @@
-import {themes as prismThemes} from 'prism-react-renderer';
-import type {Config} from '@docusaurus/types';
+import { themes as prismThemes } from 'prism-react-renderer';
+import type { Config } from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
@@ -37,15 +37,13 @@ const config: Config = {
           sidebarPath: './sidebars.ts',
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/micaiah-effiong/rn-pip',
+          editUrl: 'https://github.com/micaiah-effiong/rn-pip',
         },
         blog: {
           showReadingTime: true,
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/micaiah-effiong/rn-pip',
+          editUrl: 'https://github.com/micaiah-effiong/rn-pip',
         },
         theme: {
           customCss: './src/css/custom.css',
@@ -57,34 +55,34 @@ const config: Config = {
   themeConfig: {
     // site meta data
     metadata: [
-      {name:"keywords", content:"react native, picture in picture, pip,"},
-      {name: 'twitter:card', content: 'summary_large_image'},
+      { name: 'keywords', content: 'react native, picture in picture, pip,' },
+      { name: 'twitter:card', content: 'summary_large_image' },
     ],
-    headTags:[
+    headTags: [
       {
-        tagName:'link',
-        attributes:{
-          rel:'preconnect',
+        tagName: 'link',
+        attributes: {
+          rel: 'preconnect',
           href: 'https://example.com',
-        }
+        },
       },
       {
-        tagName:'script',
-        attributes:{
-            type: 'application/ld+json',
+        tagName: 'script',
+        attributes: {
+          type: 'application/ld+json',
         },
         innerHTML: JSON.stringify({
           '@context': 'https://schema.org/',
           '@type': 'Organization',
-          name: 'Rn-pip',
-          url: 'https://github.com/micaiah-effiong/rn-pip',
+          'name': 'Rn-pip',
+          'url': 'https://github.com/micaiah-effiong/rn-pip',
         }),
-      }
+      },
     ],
-    colorMode:{
+    colorMode: {
       defaultMode: 'dark',
-      disableSwitch:false,
-      respectPrefersColorScheme:true
+      disableSwitch: false,
+      respectPrefersColorScheme: true,
     },
     // Replace with your project's social card
     navbar: {
@@ -96,7 +94,7 @@ const config: Config = {
           position: 'left',
           label: 'Docs',
         },
-        {to: '/blog', label: 'Blog', position: 'left'},
+        { to: '/blog', label: 'Blog', position: 'left' },
         {
           href: 'https://github.com/micaiah-effiong/rn-pip',
           label: 'GitHub',
@@ -115,18 +113,17 @@ const config: Config = {
               to: '/docs/intro',
             },
             {
-              label:"Installation",
-              to:'/docs/getting-started/installation'
-
+              label: 'Installation',
+              to: '/docs/getting-started/installation',
             },
             {
-              label:'Guides',
-              to:'/docs/category/guides--concepts'
+              label: 'Guides',
+              to: '/docs/category/guides--concepts',
             },
             {
-              label:'Examples',
-              to:'/docs/category/examples'
-            }
+              label: 'Examples',
+              to: '/docs/category/examples',
+            },
           ],
         },
         {
@@ -165,6 +162,7 @@ const config: Config = {
     prism: {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
+      additionalLanguages: ['java', 'xml-doc'],
     },
   } satisfies Preset.ThemeConfig,
 };
