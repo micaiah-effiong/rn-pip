@@ -26,7 +26,8 @@
     "!**/.*"
   ],
   "scripts": {
-    "example": "yarn workspace rn-pip-example",
+    "docs": "yarn workspace rn-pip-example",
+    "example": "yarn workspace doc-site",
     "test": "jest",
     "typecheck": "tsc --noEmit",
     "lint": "eslint \"**/*.{js,ts,tsx}\"",
@@ -83,7 +84,8 @@
     "react-native": "*"
   },
   "workspaces": [
-    "example"
+    "example",
+    "doc-site"
   ],
   "packageManager": "yarn@3.6.1",
   "engines": {
