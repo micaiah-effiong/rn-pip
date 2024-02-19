@@ -9,13 +9,11 @@ Let's discover **Rn-pip in less than 5 minutes**.
 Enhance the user experience of your React Native apps using **Rn-pip**'s Picture in Picture functionality.
 Our package includes **seamless integration** and **simple deployment**, allowing your users to multitask while enjoying your app's content.
 
-## Motivation
-
+<!-- ## Motivation -->
 
 ## Enough of this chatter; show me some code!
 
 ```jsx title="/src/components/PipCode.jsx"
-
 import PipHandler, { usePipModeListener } from 'rn-pip';
 
 export default function App() {
@@ -46,11 +44,8 @@ export default function App() {
 }
 ```
 
-
-
 ## So, now that you've talked me into it, what happens?
 
 - Consider [Installing Rn-pip](/docs/getting-started/installation) in your project
 
 - Learn more about Rn-pip by [Playing around](/docs/getting-started/playground)
-

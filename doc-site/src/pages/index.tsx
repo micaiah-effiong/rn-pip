@@ -10,7 +10,6 @@ function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext();
   return (
     <header className={clsx('hero', styles.heroBanner)}>
-
       <div className="container">
         <div className={styles.content}>
           <h1>{siteConfig.title}</h1>
@@ -18,20 +17,18 @@ function HomepageHeader() {
         </div>
         <p className="hero__subtitle">{siteConfig.tagline}</p>
         <div className={styles.buttons}>
-          <Link
-            className="button button--primary button--lg"
-            to="/docs/intro">
+          <Link className="button button--primary button--lg" to="/docs/intro">
             Get Started
           </Link>
 
-          <Link
-            className="button button--secondary button--lg"
-            to="/docs/intro">
-            Try a Demo
-          </Link>
+          {/* <Link
+              className="button button--secondary button--lg"
+              to="/docs/intro"
+            >
+              Try a Demo
+            </Link> */}
         </div>
       </div>
-
     </header>
   );
 }
@@ -41,9 +38,10 @@ export default function Home(): JSX.Element {
   return (
     <Layout
       title={`Hello from ${siteConfig.title}`}
-      description="Description will go into a meta tag in <head />">
+      description="Description will go into a meta tag in <head />"
+    >
       <HomepageHeader />
-      <main className='padding-vert--xl'>
+      <main className="padding-vert--xl">
         <HomepageFeatures />
       </main>
     </Layout>
