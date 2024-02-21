@@ -117,39 +117,14 @@ const config: Config = {
               to: '/docs/getting-started/installation',
             },
             {
-              label: 'Guides',
-              to: '/docs/category/guides--concepts',
+              label: 'Playground',
+              to: '/docs/getting-started/playground',
             },
-            // {
-            //   label: 'Examples',
-            //   to: '/docs/category/examples',
-            // },
           ],
         },
-        // {
-        //   title: 'Community',
-        //   items: [
-        //     {
-        //       label: 'Stack Overflow',
-        //       href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-        //     },
-        //     {
-        //       label: 'Discord',
-        //       href: 'https://discordapp.com/invite/docusaurus',
-        //     },
-        //     {
-        //       label: 'Twitter',
-        //       href: 'https://twitter.com/docusaurus',
-        //     },
-        //   ],
-        // },
         {
           title: 'More',
           items: [
-            // {
-            //   label: 'Blog',
-            //   to: '/blog',
-            // },
             {
               label: 'GitHub',
               href: 'https://github.com/micaiah-effiong/rn-pip',
