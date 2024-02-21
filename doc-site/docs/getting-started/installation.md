@@ -1,7 +1,7 @@
 ---
 sidebar_position: 1
 ---
-# Installation
+#  👨‍💻 Installation
 
 You can install Rn-pip via [NPM](https://www.npmjs.com/) or [Yarn](https://yarnpkg.com/)
 

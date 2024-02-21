@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-# Introduction
+# 💡 Introduction
 
 Let's discover **Rn-pip in less than 5 minutes**.
 

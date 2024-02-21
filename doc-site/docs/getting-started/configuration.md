@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-# Configuration
+# ⚙️ Configuration
 
 To get Rn-pip working properly, the below code snippets demonstrates how to configure Rn-pip for various settings.
 The first snippet is a basic setup , while the second snippet allows you to subscribe to changes in the pip(picture in picture) mode

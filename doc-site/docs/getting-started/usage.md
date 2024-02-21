@@ -2,7 +2,7 @@
 sidebar_position: 3
 ---
 
-# Usage
+# 🔌 Usage
 
 Now that you must have configured Rn-pip in your project. Here is a simple use case.
 
