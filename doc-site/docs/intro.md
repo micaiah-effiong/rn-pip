@@ -48,4 +48,4 @@ export default function App() {
 
 - Consider [Installing Rn-pip](/docs/getting-started/installation) in your project
 
-- Learn more about Rn-pip by [Playing around](/docs/getting-started/playground)
+<!-- - Learn more about Rn-pip by [Playing around](/docs/getting-started/playground) -->

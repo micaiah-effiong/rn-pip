@@ -116,10 +116,10 @@ const config: Config = {
               label: 'Installation',
               to: '/docs/getting-started/installation',
             },
-            {
-              label: 'Playground',
-              to: '/docs/getting-started/playground',
-            },
+            // {
+            //   label: 'Playground',
+            //   to: '/docs/getting-started/playground',
+            // },
           ],
         },
         {
