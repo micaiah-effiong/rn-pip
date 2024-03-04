@@ -26,8 +26,8 @@
     "!**/.*"
   ],
   "scripts": {
-    "docs": "yarn workspace rn-pip-example",
-    "example": "yarn workspace doc-site",
+    "docs": "yarn workspace doc-site",
+    "example": "yarn workspace rn-pip-example",
     "test": "jest",
     "typecheck": "tsc --noEmit",
     "lint": "eslint \"**/*.{js,ts,tsx}\"",
