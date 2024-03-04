@@ -26,6 +26,7 @@
     "!**/.*"
   ],
   "scripts": {
+    "docs": "yarn workspace doc-site",
     "example": "yarn workspace rn-pip-example",
     "test": "jest",
     "typecheck": "tsc --noEmit",
@@ -83,7 +84,8 @@
     "react-native": "*"
   },
   "workspaces": [
-    "example"
+    "example",
+    "doc-site"
   ],
   "packageManager": "yarn@3.6.1",
   "engines": {
