@@ -1,4 +1,4 @@
-import clsx from 'clsx';
+/* eslint-disable react/react-in-jsx-scope */
 import Heading from '@theme/Heading';
 import styles from './styles.module.css';
 
@@ -14,8 +14,8 @@ const FeatureList: FeatureItem[] = [
     Svg: require('@site/static/img/undraw_ease.svg').default,
     description: (
       <>
-        Rn-pip was designed from the ground up to be easily installed and intergrated into
-        your React Native App.
+        Rn-pip was designed from the ground up to be easily installed and
+        intergrated into your React Native App.
       </>
     ),
   },
@@ -25,26 +25,21 @@ const FeatureList: FeatureItem[] = [
     description: (
       <>
         Rn-pip lets you focus on what matters, and we&apos;ll do the chores. Go
-        ahead and keep users engaged by enabling Picture in Picture,
-        allowing them to stay immersed in your app's content.
+        ahead and keep users engaged by enabling Picture in Picture, allowing
+        them to stay immersed in your app's content.
       </>
     ),
   },
   {
     title: 'Typescript Support',
     Svg: require('@site/static/img/undraw_typescript.svg').default,
-    description: (
-      <>
-        Rn-pip provides first-class Typescript support
-      </>
-    ),
+    description: <>Rn-pip provides first-class Typescript support</>,
   },
 ];
 
 function Feature({ title, Svg, description }: FeatureItem) {
   return (
-
-    <div className='col col--4'>
+    <div className="col col--4">
       <div className="card-demo">
         <div>
           <div className="text--center">

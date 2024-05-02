@@ -60,10 +60,22 @@ const config: Config = {
     ],
     headTags: [
       {
+        tagName: 'title',
+        innerHTML: 'Rn-pip',
+      },
+      {
+        tagName: 'meta',
+        attributes: {
+          name: 'description',
+          content:
+            "Enhance the user experience of your React Native apps using Rn-pip's Picture in Picture functionality.",
+        },
+      },
+      {
         tagName: 'link',
         attributes: {
           rel: 'preconnect',
-          href: 'https://example.com',
+          href: 'https://micaiah-effiong.github.io/rn-pip/',
         },
       },
       {

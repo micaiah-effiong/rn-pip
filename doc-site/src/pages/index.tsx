@@ -1,3 +1,4 @@
+/* eslint-disable react/react-in-jsx-scope */
 import clsx from 'clsx';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
@@ -20,13 +21,6 @@ function HomepageHeader() {
           <Link className="button button--primary button--lg" to="/docs/intro">
             Get Started
           </Link>
-
-          {/* <Link
-              className="button button--secondary button--lg"
-              to="/docs/intro"
-            >
-              Try a Demo
-            </Link> */}
         </div>
       </div>
     </header>
@@ -38,7 +32,7 @@ export default function Home(): JSX.Element {
   return (
     <Layout
       title={`Hello from ${siteConfig.title}`}
-      description="Description will go into a meta tag in <head />"
+      description="Enhance the user experience of your React Native apps using Rn-pip's Picture in Picture functionality."
     >
       <HomepageHeader />
       <main className="padding-vert--xl">
