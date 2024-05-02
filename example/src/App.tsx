@@ -10,6 +10,13 @@ export default function App() {
   const inPipMode = RnPipHandler.usePipModeListener();
   const [autoPipMode, setAutoPipMode] = React.useState(true);
 
+  const handleEnterPipMode = () => {
+    RnPipHandler.setDisplay(214, 380);
+
+    // RnPipHandler.enterPictureInPictureMode(); // or
+    enterPictureInPictureMode();
+  };
+
   React.useEffect(() => {
     enableAutoPipMode(autoPipMode);
   }, [autoPipMode]);
@@ -25,10 +32,7 @@ export default function App() {
   return (
     <View style={styles.container}>
       <View style={styles.box}>
-        <Button
-          onPress={() => enterPictureInPictureMode()}
-          title="Enter pip Mode"
-        />
+        <Button onPress={handleEnterPipMode} title="Enter pip Mode" />
         <Text>Pip Mode {inPipMode.toString()}</Text>
       </View>
 

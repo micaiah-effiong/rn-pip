@@ -21,6 +21,8 @@ public class RnPipModule extends ReactContextBaseJavaModule {
   public static Boolean ENABLE_AUTO_PIP_MODE = false;
   private static DeviceEventManagerModule.RCTDeviceEventEmitter eventEmitter = null;
 
+  private static Rational pipRatio;
+
   ReactApplicationContext reactApplicationContext;
   public static ReactApplicationContext _reactApplicationContext;
 
@@ -34,6 +36,13 @@ public class RnPipModule extends ReactContextBaseJavaModule {
     super(reactContext);
     this.reactApplicationContext = reactContext;
     _reactApplicationContext = reactContext;
+
+    this.pipRatio = new Rational(380, 214);
+  }
+
+  @ReactMethod
+  public void setDisplay(int width, int height){
+    this.pipRatio = new Rational(width, height);
   }
 
   @Override
@@ -71,13 +80,8 @@ public class RnPipModule extends ReactContextBaseJavaModule {
       return;
     }
 
-    // 300, 214
-    int ratWidth = 380;
-    int ratHeight = 214;
-
     PictureInPictureParams.Builder pipBuilder = new PictureInPictureParams.Builder();
-    Rational ratio = new Rational(ratWidth, ratHeight);
-    pipBuilder.setAspectRatio(ratio);
+    pipBuilder.setAspectRatio(RnPipModule.pipRatio);
     PictureInPictureParams params = pipBuilder.build();
 
     _reactApplicationContext.getCurrentActivity().enterPictureInPictureMode(params);
@@ -90,7 +94,7 @@ public class RnPipModule extends ReactContextBaseJavaModule {
   }
 
   @ReactMethod
-  public void enterPictureInPictureMode(int width, int height) {
+  public void enterPictureInPictureMode() {
      if(isInPipMode()){
        return;
      }
@@ -104,13 +108,8 @@ public class RnPipModule extends ReactContextBaseJavaModule {
       return;
     }
 
-   // 300, 214
-    int ratWidth = width > 0 ? width : 380;
-    int ratHeight = height > 0 ? height : 214;
-
     PictureInPictureParams.Builder pipBuilder = new PictureInPictureParams.Builder();
-    Rational ratio = new Rational(ratWidth, ratHeight);
-    pipBuilder.setAspectRatio(ratio);
+    pipBuilder.setAspectRatio(RnPipModule.pipRatio);
     PictureInPictureParams params = pipBuilder.build();
 
     reactApplicationContext.getCurrentActivity().enterPictureInPictureMode(params);
