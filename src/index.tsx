@@ -27,29 +27,25 @@ export function multiply(a: number, b: number): Promise<number> {
   return RnPip.multiply(a, b);
 }
 
-export function enterPictureInPictureMode(width?: number, height?: number) {
-  if (Platform.OS !== 'android') {
+export function enterPictureInPictureMode() {
+  if (!isAndroid()) {
     return;
   }
 
-  return RnPip.enterPictureInPictureMode(
-    width ? Math.floor(width) : 0,
-    height ? Math.floor(height) : 0
-  );
+  return RnPip.enterPictureInPictureMode();
 }
 
-const PipEventEmitter =
-  Platform.OS === 'android' ? new NativeEventEmitter(RnPip) : null;
+const PipEventEmitter = isAndroid() ? new NativeEventEmitter(RnPip) : null;
 
 export function onPipModeChanged(listener: (isModeEnabled: boolean) => void) {
-  if (Platform.OS !== 'android') {
+  if (!isAndroid()) {
     return;
   }
   return PipEventEmitter?.addListener('PIP_MODE_CHANGE', listener);
 }
 
 export function enableAutoPipMode(enable: boolean) {
-  if (Platform.OS !== 'android') {
+  if (!isAndroid()) {
     return;
   }
   RnPip.enableAutoPipMode(enable);
@@ -59,7 +55,7 @@ export function usePipModeListener(): boolean {
   const [isModeEnabled, setIsPipModeEnabled] = useState<boolean>(false);
 
   useEffect(() => {
-    if (Platform.OS !== 'android') {
+    if (!isAndroid()) {
       return;
     }
 
@@ -74,7 +70,16 @@ export function usePipModeListener(): boolean {
   return isModeEnabled;
 }
 
+function isAndroid() {
+  return Platform.OS === 'android';
+}
+
+export const setDisplay = (width: number, height: number) => {
+  RnPip.setDisplay(width, height);
+};
+
 export default {
+  setDisplay,
   enterPictureInPictureMode,
   usePipModeListener,
   enableAutoPipMode,
