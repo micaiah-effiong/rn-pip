@@ -2147,15 +2147,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@commitlint/config-conventional@npm:^17.0.2":
-  version: 17.8.1
-  resolution: "@commitlint/config-conventional@npm:17.8.1"
-  dependencies:
-    conventional-changelog-conventionalcommits: ^6.1.0
-  checksum: ce8ace1a13f3a797ed699ffa13dc46273a27e1dc3ae8a9d01492c0637a8592e4ed24bb32d9a43f8745a8690a52d77ea4a950d039977b0dbcbf834f8cbacf5def
-  languageName: node
-  linkType: hard
-
 "@commitlint/config-validator@npm:^17.8.1":
   version: 17.8.1
   resolution: "@commitlint/config-validator@npm:17.8.1"
@@ -2947,16 +2938,6 @@ __metadata:
   version: 8.56.0
   resolution: "@eslint/js@npm:8.56.0"
   checksum: 5804130574ef810207bdf321c265437814e7a26f4e6fac9b496de3206afd52f533e09ec002a3be06cd9adcc9da63e727f1883938e663c4e4751c007d5b58e539
-  languageName: node
-  linkType: hard
-
-"@evilmartians/lefthook@npm:^1.5.0":
-  version: 1.5.6
-  resolution: "@evilmartians/lefthook@npm:1.5.6"
-  bin:
-    lefthook: bin/index.js
-  checksum: 8d5cfa6fe0160a880ac9ff508115f7bb49b3f43017e824d3ccf58a70bf1ca6756987b3ea0d8413117a14aa203c25defe8cf8813f3d2c058e00cd48fc23a179db
-  conditions: (os=darwin | os=linux | os=win32) & (cpu=x64 | cpu=arm64 | cpu=ia32)
   languageName: node
   linkType: hard
 
@@ -7188,15 +7169,6 @@ __metadata:
     lodash: ^4.17.15
     q: ^1.5.1
   checksum: 7b8e8a21ebb56f9aaa510e12917b7c609202072c3e71089e0a09630c37c2e8146cdb04364809839b0e3eb55f807fe84d03b2079500b37f6186d505848be5c562
-  languageName: node
-  linkType: hard
-
-"conventional-changelog-conventionalcommits@npm:^6.1.0":
-  version: 6.1.0
-  resolution: "conventional-changelog-conventionalcommits@npm:6.1.0"
-  dependencies:
-    compare-func: ^2.0.0
-  checksum: 4383a35cdf72f5964e194a1146e7f78276e301f73bd993b71627bb93586b6470d411b9613507ceb37e0fed0b023199c95e941541fa47172b4e6a7916fc3a53ff
   languageName: node
   linkType: hard
 
@@ -17266,8 +17238,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "rn-pip@workspace:."
   dependencies:
-    "@commitlint/config-conventional": ^17.0.2
-    "@evilmartians/lefthook": ^1.5.0
     "@react-native/eslint-config": ^0.72.2
     "@release-it/conventional-changelog": ^5.0.0
     "@types/jest": ^28.1.2
