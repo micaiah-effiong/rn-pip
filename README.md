@@ -52,6 +52,10 @@ public class MainActivity extends ReactActivity {
   public void onPictureInPictureModeChanged (boolean isInPictureInPictureMode, Configuration newConfig) {
     RnPipModule.pipModeChanged(isInPictureInPictureMode);
   }
+
+  public void onUserLeaveHint() {
+    RnPipModule.onUserLeaveHint()
+  }
 ```
 
 KOTLIN
@@ -64,6 +68,10 @@ import com.rnpip.RnPipModule;
 class MainActivity : ReactActivity() {
 
 ...
+
+  override fun onPictureInPictureModeChanged(isInPictureInPictureMode: Boolean) {
+    RnPipModule.pipModeChanged(isInPictureInPictureMode)
+  }
 
   override fun onUserLeaveHint() {
     RnPipModule.onUserLeaveHint()
