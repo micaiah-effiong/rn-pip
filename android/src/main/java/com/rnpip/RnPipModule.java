@@ -57,6 +57,12 @@ public class RnPipModule extends ReactContextBaseJavaModule {
     promise.resolve(a * b);
   }
 
+  public static void onUserLeaveHint(){
+    if (RnPipModule.ENABLE_AUTO_PIP_MODE) {
+      RnPipModule.enterPipMode()
+    }
+  }
+
   public static void enterPipMode(){
     if(_reactApplicationContext.getCurrentActivity() != null && _reactApplicationContext.getCurrentActivity().isInPictureInPictureMode()){
       return;

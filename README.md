@@ -5,10 +5,6 @@ Also has a listener to notify the pip state change.
 
 > **Note:** This package only works on android.
 
-<!-- ## Demo -->
-<!---->
-<!-- <a href="https://github.com/adkaushik/react-native-pip-android"><img src="https://user-images.githubusercontent.com/26771716/130575748-d763dc3c-ff73-4727-8019-28eb210c88fd.gif" width="360"></a> -->
-
 ## Installation
 
 Using npm
@@ -41,6 +37,8 @@ you are good to go. In order to subscribe to the changes in the pip mode, add th
 
 Add this import to the activity
 
+JAVA
+
 ```java
 ...
 import com.rnpip.RnPipModule;
@@ -53,6 +51,22 @@ public class MainActivity extends ReactActivity {
 @Override
   public void onPictureInPictureModeChanged (boolean isInPictureInPictureMode, Configuration newConfig) {
     RnPipModule.pipModeChanged(isInPictureInPictureMode);
+  }
+```
+
+KOTLIN
+
+```kotline
+...
+import com.rnpip.RnPipModule;
+
+
+class MainActivity : ReactActivity() {
+
+...
+
+  override fun onUserLeaveHint() {
+    RnPipModule.onUserLeaveHint()
   }
 ```
 

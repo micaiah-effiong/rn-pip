@@ -26,8 +26,6 @@ class MainActivity : ReactActivity() {
   }
 
   override fun onUserLeaveHint() {
-    if (RnPipModule.ENABLE_AUTO_PIP_MODE) {
-      RnPipModule.enterPipMode()
-    }
+    RnPipModule.onUserLeaveHint()
   }
 }
